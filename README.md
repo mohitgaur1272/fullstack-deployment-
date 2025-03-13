@@ -19,8 +19,10 @@ docker run -d --name frontend-container --network my-network -p 80:80 my-fronten
 <public-ip:80>
 ```
 ## then create database container of mongodb by this command 
+### create folder for save data 
 ```
-docker run -d --name mongo --network my-network -p 27017:27017 mongo
+mkdir -p ~/mongo_data
+docker run -d --name mongo --network my-network -p 27017:27017 -v ~/mongo_data:/data/db mongo
 ```
 ### then open ```server.js``` file and in the database url use like this  
 ```
